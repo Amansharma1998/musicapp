@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_15_053007) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_18_092906) do
+  create_table "songs", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.integer "play_count"
+    t.integer "artist_id", null: false
+    t.integer "album_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_songs_on_album_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -18,6 +30,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_15_053007) do
     t.string "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_ats"
   end
 
+  add_foreign_key "songs", "albums"
+  add_foreign_key "songs", "artists"
 end

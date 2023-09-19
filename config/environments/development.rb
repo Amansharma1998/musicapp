@@ -28,7 +28,7 @@ Rails.application.configure do
   port:                 587,
   domain:               'gmail.com',
   user_name:            'amans@shriffle.com',
-  password:             'Aman@1998',
+  password:             'qjivxoeuexagebzs',
   authentication:       'plain',
   enable_starttls_auto: true  }
   # Enable/disable caching. By default caching is disabled.
